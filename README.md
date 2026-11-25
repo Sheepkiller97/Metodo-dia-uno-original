@@ -1,4 +1,4 @@
-# Landing Gemini - nueva
+# Landing original - actual sin mejorar
 
 Este paquete contiene la landing HTML lista para probar en GitHub Pages.
 

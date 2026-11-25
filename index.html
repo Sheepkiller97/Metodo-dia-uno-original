@@ -1,440 +1,509 @@
 <!DOCTYPE html>
-<html lang="es" class="dark scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Método Día Uno | Hackea tu Cerebro y Recupera el Control</title>
+    <title>Shopify Landing Page Preview - Método Día Uno</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#080809',
-                        darkCard: '#131316',
-                        darkBorder: '#23232a',
-                        goldPrimary: '#D4AF37',
-                        goldBright: '#FFD700',
-                        goldDark: '#997A2A'
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* Soft Lighting Ambient Background Effects */
-        .ambient-bg {
-            background-color: #080809;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 60%, rgba(184, 134, 11, 0.06) 0%, transparent 45%),
-                radial-gradient(circle at 50% 90%, rgba(255, 215, 0, 0.04) 0%, transparent 50%);
-        }
-
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #997A2A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .gold-border {
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            transition: all 0.3s ease;
-        }
-        .gold-border:hover {
-            border-color: rgba(255, 215, 0, 0.6);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
-        }
-
-        .gold-glow {
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
-            color: #080809;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        .btn-gold:hover {
-            background: linear-gradient(135deg, #ffe033 0%, #e6c547 100%);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Reveal Animation Styles */
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: opacity, transform;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
-
-        /* Floating Checkout Button */
-        .floating-cta {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 999;
-            display: none;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.3);
-            animation: pulse-soft 3s infinite;
-        }
-        @keyframes pulse-soft {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-        }
+        body { background-color: #1a1a1a; color: white; font-family: 'Inter', sans-serif; margin: 0; overflow: hidden; }
+        .preview-container { display: flex; flex-direction: column; height: 100vh; width: 100%; }
+        .viewer { flex-grow: 1; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto; background: #121212; }
+        #frame-wrapper { background: white; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); width: 100%; height: 100%; }
+        iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
-<body class="ambient-bg text-gray-100 antialiased selection:bg-goldPrimary selection:text-darkBg">
+<body>
+    <div class="preview-container">
+        <div class="viewer">
+            <div id="frame-wrapper">
+                <iframe id="preview-frame" srcdoc='
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+                    <style>
+                        :root { --gold: #D4AF37; --gold-dark: #B8860B; --gold-light: #F9E596; --black-bg: #0A0A0A; --dark-grey: #141414; --white: #FFFFFF; --text-muted: #A0A0A0; }
+                        * { box-sizing: border-box; }
+                        body { margin: 0; padding: 0; background: var(--black-bg); color: var(--white); font-family: "Inter", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+                        
+                        /* ANIMACIONES FLUIDAS PREMIUM */
+                        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); will-change: opacity, transform; }
+                        .reveal.active { opacity: 1; transform: translateY(0); }
+                        .delay-100 { transition-delay: 100ms; } .delay-200 { transition-delay: 200ms; } .delay-300 { transition-delay: 300ms; }
 
-    <!-- Top Urgency Notification Bar -->
-    <div class="bg-gradient-to-r from-yellow-900/60 via-amber-600/30 to-yellow-900/60 border-b border-goldPrimary/30 py-2.5 px-4 text-center text-xs sm:text-sm font-semibold text-goldBright tracking-wide">
-        ⚡ ACCESO INMEDIATO: Ebook PDF + 3 Bonos Exclusivos de Ejecución (Oferta por tiempo limitado)
+                        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+                        h1, h2, h3 { line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
+                        .text-gold { background: linear-gradient(90deg, var(--gold-light), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+                        .text-center { text-align: center; }
+                        
+                        .urgency-bar { background: linear-gradient(90deg, var(--gold-dark), var(--gold)); color: #000; text-align: center; padding: 10px 0; font-weight: 800; font-size: 0.85rem; position: relative; z-index: 1000; letter-spacing: 0.05em; }
+                        .hero { padding: 40px 0 80px; background: radial-gradient(circle at top right, rgba(212,175,55,0.05), var(--black-bg)); }
+                        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+                        .hero-content h1 { font-size: 3.2rem; letter-spacing: -0.02em; }
+                        .hero-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 35px; }
+                        
+                        .cta-button { background: linear-gradient(135deg, var(--gold), #FFD700); color: #000; padding: 20px 40px; border-radius: 8px; text-decoration: none; font-weight: 900; font-size: 1.2rem; display: inline-block; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); border: 1px solid rgba(255,255,255,0.2); cursor: pointer; text-transform: uppercase; text-align: center; box-shadow: 0 10px 30px rgba(212,175,55,0.2); letter-spacing: 0.03em; }
+                        .cta-button:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(212,175,55,0.4); background: linear-gradient(135deg, #FFD700, var(--gold-light)); }
+                        
+                        .ebook-mockup img { display: block; margin: 0 auto; max-width: 100%; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.8)); transition: transform 0.5s ease; }
+                        .ebook-mockup img:hover { transform: translateY(-10px); }
+                        
+                        .pain-section { padding: 80px 0; background: var(--dark-grey); }
+                        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+                        .pain-card { background: linear-gradient(145deg, #1A1A1A, #111); padding: 40px 30px; border-radius: 16px; border: 1px solid rgba(212,175,55,0.1); border-left: 4px solid var(--gold); transition: transform 0.3s ease, border-color 0.3s ease; }
+                        .pain-card:hover { transform: translateY(-5px); border-color: rgba(212,175,55,0.3); }
+                        
+                        .benefits-list { list-style: none; padding: 0; }
+                        .benefits-list li { margin-bottom: 20px; display: flex; align-items: flex-start; font-size: 1.15rem; color: #E0E0E0; }
+                        .benefits-list li::before { content: "✓"; color: var(--gold); font-weight: 900; margin-right: 15px; font-size: 1.3rem; }
+
+                        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 45px 0; }
+                        .testimonial-card { background: #111; padding: 35px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); }
+                        .stars { color: var(--gold); margin-bottom: 15px; font-size: 1.2rem; letter-spacing: 2px; }
+                        .testimonial-author { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+                        .testimonial-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
+                        .testimonial-name { font-weight: 700; font-size: 1rem; color: var(--gold-light); }
+                        
+                        .pricing-card { background: linear-gradient(145deg, #181818, #0A0A0A); padding: 60px 40px; border-radius: 24px; border: 1px solid rgba(212,175,55,0.3); text-align: center; max-width: 550px; margin: 60px auto; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+                        .price-anchor { text-decoration: line-through; color: #777; font-size: 1.5rem; font-weight: 600; }
+                        .price-main { font-size: 4.5rem; font-weight: 900; margin: 10px 0; color: var(--gold); text-shadow: 0 0 40px rgba(212,175,55,0.2); }
+                        
+                        .guarantee { display: flex; align-items: center; gap: 20px; background: rgba(255,255,255,0.02); padding: 30px; border-radius: 16px; margin-top: 20px; border: 1px solid rgba(255,255,255,0.05); }
+                        .guarantee-badge { display:flex; align-items:center; justify-content:center; gap:10px; padding:10px 24px; border-radius:999px; background:rgba(212,175,55,0.05); border:1px solid rgba(212,175,55,0.3); color:var(--gold); font-weight:700; margin: 25px auto; width: max-content; }
+
+                        .live-bar { background: #0A0A0A; border-bottom: 1px solid #1A1A1A; padding: 10px 0; text-align: center; font-size: 0.8rem; color: #888; letter-spacing: 0.05em; text-transform: uppercase; }
+                        .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #4ade80; margin-right: 8px; animation: pulse-dot 2s infinite; vertical-align: middle; box-shadow: 0 0 10px rgba(74, 222, 128, 0.4); }
+                        @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+                        .section-divider { display: flex; align-items: center; gap: 20px; padding: 0 20px; max-width: 700px; margin: 0 auto; opacity: 0.5; }
+                        .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+                        .section-divider span { color: var(--gold); font-size: 1.2rem; }
+
+                        /* CLASES DE OPTIMIZACIÓN (Ahorro de espacio) */
+                        .badge-purple { border: 2px solid #bc13fe; color: #bc13fe; padding: 6px 12px; font-size: 13px; font-weight: 800; text-align: center; font-family: sans-serif; border-radius: 6px; text-transform: uppercase; box-shadow: 0 0 10px rgba(188, 19, 254, 0.4); background: rgba(188, 19, 254, 0.05); margin-top: 20px; margin-bottom: 15px; }
+                        .badge-red { border: 2px solid #ff4d4f; color: #ff4d4f; padding: 6px 12px; font-size: 13px; font-weight: 800; text-align: center; font-family: sans-serif; border-radius: 6px; text-transform: uppercase; box-shadow: 0 0 10px rgba(255, 77, 79, 0.4); background: rgba(255, 77, 79, 0.05); margin-top: 20px; margin-bottom: 15px; }
+                        .bono-card { background:linear-gradient(145deg,#151515,#1c1c1c); border:1px solid rgba(212,175,55,0.3); border-radius:16px; padding:32px; position:relative; overflow:hidden; transition:border-color 0.3s; }
+                        .bono-line { position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#D4AF37,#FFD700); }
+                        .bono-tag { display:inline-block; background:rgba(212,175,55,0.15); border:1px solid rgba(212,175,55,0.4); color:#D4AF37; font-size:0.7rem; font-weight:800; padding:3px 10px; border-radius:999px; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; }
+                        .bono-item { font-size:0.85rem; color:#ccc; padding:4px 0; display:flex; gap:8px; }
+                        .bono-arrow { color:#D4AF37; font-weight:700; flex-shrink:0; }
+                        .faq-box { background: #1a1a1a; padding: 40px; border-radius: 10px; margin-bottom: 15px; border: 1px solid #333; }
+                        
+                        .boton-flotante-compra { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, var(--gold), #FFD700); color: #000; font-size: 1.1rem; font-weight: 900; padding: 18px 32px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 10px 25px rgba(212,175,55,0.3); z-index: 9999; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); text-transform: uppercase; letter-spacing: 0.05em; display: none; }
+                        .boton-flotante-compra:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(212,175,55,0.5); background: linear-gradient(135deg, #FFD700, var(--gold-light)); }
+                        .boton-flotante-compra:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+                        @media (max-width: 768px) {.hero { padding-top: 0px; }
+.hero-content h1 { margin-bottom: 6px; }
+.hero-content p { margin-bottom: 15px; }
+                            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+                            .hero-content h1 { font-size: 2.5rem; }
+                            .price-main { font-size: 3.5rem; }
+                            .guarantee { flex-direction: column; text-align: center; }
+                            .boton-flotante-compra { bottom: 20px; right: 20px; font-size: 0.9rem; padding: 15px 24px; }
+                        }
+                    </style>
+                </head>
+                <body>
+                   
+
+                    <section class="hero">
+                        <div class="container hero-grid">
+                            <div class="hero-content reveal">
+                                <h1 class="text-gold">Hackea tu Cerebro y Recupera el Control de tu Vida Hoy Mismo.</h1>
+                                <p style="font-size:1.35rem; font-weight:600; color:#fff; margin-bottom:15px;">
+                                    En menos de 10 minutos podrás iniciar cualquier tarea difícil sin sentir la resistencia mental que hoy te frena.
+                                    No es pereza. Tu cerebro está evitando el malestar emocional...
+                                </p>
+                                <a href="/cart/48104788394232:1?checkout" class="cta-button" style="width:100%; display:block; text-align:center;">EMPEZAR MI DÍA UNO AHORA</a>                                      
+                                <div style="margin-top:15px;font-size:0.95rem;color:#888; font-weight: 600;">
+                                    • Acceso inmediato • Pago único • Pago seguro • Garantía de 30 días
+                                </div>                                 
+                                <div style="margin-top: 15px; font-size: 0.95rem; color: #888;"> ⭐⭐⭐⭐⭐ 4.8/5 basado en 214 lectores.</div>
+                            </div>
+                            <div class="ebook-mockup reveal delay-200">
+                                <img src="https://cdn.shopify.com/s/files/1/0813/3820/4408/files/ChatGPT_Image_15_jun_2026_01_27_33.png?v=1781497686" alt="Ebook">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="pain-section">
+                        <div class="container">
+                            <h2 class="text-center text-gold reveal" style="font-size:2.8rem;">¿Te sientes atrapado en este ciclo?</h2>
+                            <div class="pain-grid">
+                                <div class="pain-card reveal delay-100">
+                                    <h3 style="color: #fff;">🧭 Sabes qué hacer...</h3>
+                                    <p style="color: #bbb;">Tienes la lista de tareas preparada, el café servido, y las intenciones claras, pero terminas mirando TikTok por 2 horas sin poder evitarlo. La culpa se asoma...</p>
+                                </div>
+                                <div class="pain-card reveal delay-200">
+                                    <h3 style="color: #fff;">😞 La culpa te asfixia...</h3>
+                                    <p style="color: #bbb;">Al final del día, el peso de lo que no hiciste te quita el sueño. Te prometes que "mañana será diferente", pero el ciclo se repite.</p>
+                                </div>
+                                <div class="pain-card reveal delay-300">
+                                    <h3 style="color: #fff;">⏳ Tiempo estancado</h3>
+                                    <p style="color: #bbb;">¿Hace tiempo te sientes atrapado en el mismo lugar? ¿Como si corrieras pero permaneces en el mismo lugar? Aquí encontrarás la salida.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section style="padding:80px 0; background:#000000;">
+                        <div class="container text-center reveal">
+                            <h2 class="text-gold" style="font-size: 2.5rem;">¿Por qué este método funciona?</h2>
+                            <p style="max-width:900px; margin:0 auto; font-size:1.35rem; color:#ccc; line-height: 1.8;">
+                                Durante años estudié cómo funcionan los mecanismos de dopamina, recompensa y evitación del cerebro humano a fondo. Todo empezó como una serie de notas que fui tomando con el tiempo hasta convertirse en un método.
+                                Este método es el resumen práctico y aplicable de esos descubrimientos, ajustados para su aplicación en el día a día.
+                            </p>
+                        </div>
+                    </section>
+
+                    <div style="padding: 30px 0 10px;">
+                        <div class="section-divider reveal"><span>⬇︎</span></div>
+                    </div>
+
+                    <section style="padding: 60px 0;">
+                        <div class="container text-center reveal">
+                            <h2 style="color: #ff4d4d; font-size: 2.5rem;">El costo real de esperar al "Lunes"</h2>
+                            <p style="font-size: 1.35rem; max-width: 800px; margin: 0 auto; color: #ddd;">
+                                Cada día que postergas, tu cerebro refuerza el hábito de la evitación. No solo pierdes tiempo;
+                                estás perdiendo tu CONFIANZA y tu IDENTIDAD como ejecutor.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section style="background: var(--dark-grey); padding: 80px 0;">
+                        <div class="container">
+                            <div class="hero-grid">
+                                <div class="reveal">
+                                    <h2><span class="text-gold" style="font-size: 2.2rem;">¿La Solución? El Método Día Uno. Aprenderás a:</span></h2>                                    
+                                    <ul class="benefits-list">
+                                        <li><strong> Desactivar la Amígdala:</strong> Apagar el interruptor biológico de la huida.</li>
+                                        <li><strong>La Regla de 120 Segundos: </strong> Aprender a surfear la incomodidad inicial.</li>
+                                        <li><strong>Ayuno de Dopamina:</strong> 
+
+    Volver la motivación a línea base.</li>
+                                        <li><strong>La Inercia Imperfecta:</strong> La razón por la cual empezar mal es la clave.</li>
+                                    </ul>
+                                </div>
+                                <div class="reveal delay-200" style="background: #111; padding: 40px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                                    <h3 class="text-gold text-center">Reconfiguración Neuroquímica</h3>
+                                    <p class="text-center" style="color: #bbb; margin-bottom: 25px;">Comprende los mecanismos de dopamina para hackearlos a tu favor.</p>
+                                    <a href="/cart/48104788394232:1?checkout" class="cta-button" style="width:100%; display:block; text-align:center;">SÍ, QUIERO HACKEAR MI CEREBRO</a>                                      
+                                    <div style="text-align: center; margin-top: 20px; font-weight: 600; color: #888;">🔥 132 personas comenzaron esta semana 🔥</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="container" style="padding-top: 80px; padding-bottom: 40px;">
+                        <h2 class="text-center text-gold reveal" style="font-size: 2.5rem;">TESTIMONIOS DE NUESTROS LECTORES</h2>
+                        <div style="max-width: 900px; margin: 0 auto;">
+                            <div class="testimonial-grid">
+                                <div class="testimonial-card reveal delay-100">
+                                    <div class="stars">★★★★★</div>
+                                    <p style="color: #ddd; font-style: italic;">"De los mejores e-books sobre procrastinación que encontré, muy completo, fácil de entender y aplicar."</p>
+                                    <div class="testimonial-author">
+                                        <img class="testimonial-avatar" src="https://cdn.shopify.com/s/files/1/0813/3820/4408/files/LUCIA.jpg?v=1776498685" alt="Lucía" />
+                                        <span class="testimonial-name">- Lucía, Rosario, Santa Fe.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-card reveal delay-200">
+                                    <div class="stars">★★★★★</div>
+                                    <p style="color: #ddd; font-style: italic;">"Entender que no era cuestión de vagancia sino que estaba evitando emociones cambió mi vida."</p>
+                                    <div class="testimonial-author">
+                                        <img class="testimonial-avatar" src="https://cdn.shopify.com/s/files/1/0813/3820/4408/files/MARCOS.jpg?v=1776498425" alt="Marcos" />
+                                        <span class="testimonial-name">- Marcos, Buenos Aires.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-card reveal delay-300">
+                                    <div class="stars">★★★★★</div>
+                                    <p style="color: #ddd; font-style: italic;">"La técnica de la Micro-Acción más el segundo bono hacen que valga la pena el precio."</p>
+                                    <div class="testimonial-author">
+                                        <img class="testimonial-avatar" src="https://cdn.shopify.com/s/files/1/0813/3820/4408/files/CARLOS.jpg?v=1776498709" alt="Carlos" />
+                                        <span class="testimonial-name">- Carlos, Mar del Plata.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial-card reveal delay-100">
+                                    <div class="stars">★★★★★</div>
+                                    <p style="color: #ddd; font-style: italic;">"Siempre empezaba cosas y las dejaba. Este libro me ayudó a salir de ese ciclo. Es simple y directo."</p>
+                                    <div class="testimonial-author">
+                                        <img class="testimonial-avatar" src="https://cdn.shopify.com/s/files/1/0813/3820/4408/files/SOFIA.jpg?v=1776498669" alt="Sofía" />
+                                        <span class="testimonial-name">- Sofía, Buenos Aires.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="container reveal">
+                        <div class="pricing-card">
+                            <h3>ACCESO TOTAL INMEDIATO</h3>
+                            <div class="price-anchor">PRECIO REAL: 64.990$ </div>
+                            <div class="price-main">AHORA: $14.990</div>
+                            <p>Descuento por Tiempo limitado. Único Pago. Acceso de por vida.</p>
+                            <a href="/cart/48104788394232:1?checkout" class="cta-button" style="width:100%; display:block; text-align:center;">
+                            OBTENER ACCESO TOTAL</a>                                      
+
+                            <div class="badge-purple">MÁS 3 BONOS DE REGALO ⭐</div>                                        
+                            <div class="badge-red">🔥 Precio especial esta semana</div>
+                            
+                            <div class="guarantee-badge">30 Días de Garantía</div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 0px;">
+                            <h4 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Métodos de pago</h4>
+                            <div style="display: inline-flex; gap: 15px; align-items: center;">
+                                <img src="https://cdn.shopify.com/s/files/1/0647/0962/3978/files/MP_png.png?v=1743878945" alt="MercadoPago" style="height: 40px;" />
+                                <img src="https://cdn.shopify.com/s/files/1/0647/0962/3978/files/Visa.png?v=1743879226" alt="Visa" style="height: 40px;" />
+                                <img src="https://cdn.shopify.com/s/files/1/0647/0962/3978/files/Master.png?v=1743879226" alt="Mastercard" style="height: 40px;" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <div style="padding: 40px 20px; background: #0a0a0a; margin-top: 40px;">
+                        <h2 class="reveal" style="text-align:center; color:#D4AF37; font-size:2.2rem; font-weight:800; margin-bottom:8px;">Lo que Recibís al Acceder Hoy🚀</h2>
+                        <p class="reveal" style="text-align:center; color:#aaa; font-size:1rem; margin-bottom:40px;">Además del Método Día Uno, estos 3 bonos son tuyos. Sin costo extra. 🔥</p>
+
+                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:24px; max-width:1100px; margin:0 auto;">
+                            <div class="bono-card reveal delay-100">
+                                <div class="bono-line"></div>
+                                <div class="bono-tag">Bono #1 — Incluido gratis</div>
+                                <div style="font-size:2rem; margin-bottom:8px;">✅</div>
+                                <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:10px;">Checklist: 30 Días para Eliminar la Procrastinación</div>
+                                <p style="color:#aaa; font-size:0.9rem; line-height:1.6; margin-bottom:16px;">Un checklist diario estructurado en 4 semanas. Cada día tiene una acción concreta y medible.</p>
+                                <ul style="list-style:none; padding:0; margin:0;">
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Semana 1: Toma de Conciencia</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Semana 2: Creación de Hábitos</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Semana 3: Profundización</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Semana 4: Consolidación</li>
+                                </ul>
+                                <div style="margin-top:18px; padding-top:14px; border-top:1px solid #2a2a2a; font-size:0.8rem; color:#666;">VALOR: 9.990$ <span style="color:#D4AF37; font-weight:700;">Incluido GRATIS</span></div>
+                            </div>
+
+                            <div class="bono-card reveal delay-200">
+                                <div class="bono-line"></div>
+                                <div class="bono-tag">Bono #2 — Incluido gratis</div>
+                                <div style="font-size:2rem; margin-bottom:8px;">🧠</div>
+                                <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:10px;">Cinco Técnicas Validadas por la Neurociencia</div>
+                                <p style="color:#aaa; font-size:0.9rem; line-height:1.6; margin-bottom:16px;">Métodos probados y aplicables desde hoy. No necesitás motivación, solo el sistema correcto.</p>
+                                <ul style="list-style:none; padding:0; margin:0;">
+                                    <li class="bono-item"><span class="bono-arrow">→</span>La Regla de los 5 Segundos </li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Técnica Pomodoro sin culpa</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>"Comer el Sapo"</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Intención de Implementación</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>El Método 2 Minutos</li>
+                                </ul>
+                                <div style="margin-top:18px; padding-top:14px; border-top:1px solid #2a2a2a; font-size:0.8rem; color:#666;">VALOR: 12.990$ <span style="color:#D4AF37; font-weight:700;">Incluido GRATIS</span></div>
+                            </div>
+
+                            <div class="bono-card reveal delay-300">
+                                <div class="bono-line"></div>
+                                <div class="bono-tag">Bono #3 — Incluido gratis</div>
+                                <div style="font-size:2rem; margin-bottom:8px;">📕</div>
+                                <div style="font-size:1.1rem; font-weight:800; color:#fff; margin-bottom:10px;">Diario Reflexivo — 7 Días para Conocerte</div>
+                                <p style="color:#aaa; font-size:0.9rem; line-height:1.6; margin-bottom:16px;">Este diario te ayuda a identificar los patrones que te frenan y reemplazarlos con acciones.</p>
+                                <ul style="list-style:none; padding:0; margin:0;">
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Preguntas guiadas</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Escala de estado de ánimo</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Revisión semanal integrada</li>
+                                    <li class="bono-item"><span class="bono-arrow">→</span>Intención diaria</li>
+                                </ul>
+                                <div style="margin-top:18px; padding-top:14px; border-top:1px solid #2a2a2a; font-size:0.8rem; color:#666;">VALOR: 29.990$ <span style="color:#D4AF37; font-weight:700;">Incluido GRATIS</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <section class="container reveal" style="padding-top: 40px; padding-bottom: 20px;">
+                        <div class="guarantee">
+                            <div style="font-size: 3rem;">🛡️</div>
+                            <div>
+                                <h3>Garantía de Satisfacción</h3>
+                                <p>Si en 30 días sentís que no recuperaste el control, te devuelvo el 100% de tu dinero. El riesgo es mío.</p>                              
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="container reveal delay-100" style="padding-bottom: 20px;">
+                        <div class="guarantee">
+                            <div style="font-size: 3rem;">⚡</div>
+                            <div>
+                                <h3>Cambios desde el Día Uno</h3>
+                                <p>Al aplicar los conocimientos que aprenderás, tu vida cambiará por completo desde el DÍA UNO.</p>                              
+                            </div>
+                        </div> 
+                    </section>
+
+                    <section class="container reveal delay-200" style="padding-bottom: 40px;">
+                        <div class="guarantee">
+                            <div style="font-size: 3rem;">🧠</div>
+                            <div>
+                                <h3>El Sistema Detrás del Cambio</h3>
+                                <p>Este método no depende de fuerza de voluntad. Se basa en un sistema claro que te permite recuperar el control.</p>                              
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="reveal" style="text-align:center; padding: 0 20px; max-width: 600px; margin: 20px auto;">
+                        <a href="/cart/48104788394232:1?checkout" class="cta-button" style="width:100%; display:block; text-align:center;">
+                        RECUPERAR MI PRODUCTIVIDAD AHORA
+                        </a>                                      
+                        <div class="guarantee-badge">30 Días de Garantía</div>
+                        <div class="badge-red">🔥 Precio especial esta semana</div>  
+                    </div>                  
+
+                    <section class="container reveal" style="padding: 10px 0;">
+                        <div class="badge-purple" style="margin-bottom: 50px;">MÁS 3 BONOS DE REGALO ⭐</div>
+                    </section>
+
+                    <h2 class="text-center text-gold reveal" style="font-size:2.9rem;">Preguntas Frecuentes</h2>
+                    <p class="reveal" style="text-align:center;color:#aaa;margin-bottom:40px;">
+                        Todo lo que necesitas saber antes de empezar tu Día Uno
+                    </p>
+                    
+                    <div class="container" style="max-width: 800px;">
+                        <div class="faq-box reveal delay-100">
+                            <h4 style="color: var(--gold); margin-bottom: 10px; font-size: 1.2rem;">¿Cómo recibo el material?</h4>
+                            <p style="color: #ccc; font-size: 0.95rem;">Recibirás al instante un correo electrónico con el enlace de descarga para acceder al PDF y a los bonos de forma inmediata en cualquier dispositivo.</p>
+                        </div>
+                        <div class="faq-box reveal delay-100">
+                            <h4 style="color: var(--gold); margin-bottom: 10px; font-size: 1.2rem;">¿Guardan mis datos al momento del pago?</h4>
+                            <p style="color: #ccc; font-size: 0.95rem;">No. Todos los datos se procesan de forma segura a través de plataformas certificadas como Mercado Pago y Shopify, que utilizan encriptación avanzada. Tu compra es 100% segura.</p>
+                        </div>
+                        <div class="faq-box reveal delay-100">
+                            <h4 style="color: var(--gold); margin-bottom: 10px; font-size: 1.2rem;">¿Es un libro físico o digital?</h4>
+                            <p style="color: #ccc; font-size: 0.95rem;">Es un producto 100% digital. Esto nos permite entregarte el contenido al instante sin costos de envío y llevarlo a donde quieras.</p>
+                        </div>
+                        <div class="faq-box reveal delay-100">
+                            <h4 style="color: var(--gold); margin-bottom: 10px; font-size: 1.2rem;">¿Necesito conocimientos previos?</h4>
+                            <p style="color: #ccc; font-size: 0.95rem;">Para nada. El Método traduce conceptos complejos de neurociencia a pasos simples y prácticos.</p>
+                        </div>
+                        <div class="faq-box reveal delay-100">
+                            <h4 style="color: var(--gold); margin-bottom: 10px; font-size: 1.2rem;">¿Qué pasa si no me funciona?</h4>
+                            <p style="color: #ccc; font-size: 0.95rem;">Tienes 30 días de garantía. Si aplicas el sistema y sientes que no hubo un cambio, solo envíanos un mail y te devolvemos tu dinero.</p>
+                        </div>
+                    </div>
+
+                    <div class="reveal" style="text-align:center; margin: 40px auto 60px; padding: 0 20px; max-width: 600px;">
+                        <a href="/cart/48104788394232:1?checkout" class="cta-button" style="width:100%; display:block; text-align:center;">
+                            EMPEZAR MI DÍA UNO AHORA
+                        </a>
+                        <div class="badge-red">🔥 Precio especial esta semana</div>
+                        <div style="margin-top:10px;font-size:0.85rem;color:#888;">
+                            ✔ Acceso inmediato  ✔ Pago seguro  ✔ Ebook + Bonos Gratis
+                        </div>
+                    </div>
+
+                    <footer style="padding: 50px 30px; border-top: 1px solid #222; text-align: center; font-size: 0.8rem; color: #555;">
+                        <p>&copy; 2026 Método Día Uno. Todos los derechos reservados. Este contenido tiene fines educativos e informativos. Los resultados dependen del compromiso y aplicación individual.</p>
+                    </footer>
+
+                    <button class="boton-flotante-compra" id="comprar-flotante" type="button">
+                        🚀 ACCEDÉ AHORA
+                    </button>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.15 };
+                            const observer = new IntersectionObserver((entries, observer) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        entry.target.classList.add("active");
+                                        observer.unobserve(entry.target);
+                                    }
+                                });
+                            }, observerOptions);
+
+                            document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+                            const floatingBtn = document.getElementById("comprar-flotante");
+                            window.addEventListener("scroll", () => {
+                                if (window.scrollY > 400) {
+                                    floatingBtn.style.display = "block";
+                                } else {
+                                    floatingBtn.style.display = "none";
+                                }
+                            });
+                        });
+
+                        function startCountdown(duration) {
+                            let timer = duration;
+                            const display = document.querySelector("#countdown");
+                            setInterval(function () {
+                                let h = Math.floor(timer / 3600);
+                                let m = Math.floor((timer % 3600) / 60);
+                                let s = timer % 60;
+                                display.textContent = String(h).padStart(2,"0") + ":" + String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
+                                if (--timer < 0) timer = duration;
+                            }, 1000);
+                        }
+                        window.onload = function () { startCountdown(15 * 60); };
+
+                        (function() {
+                            var base = 23 + Math.floor(Math.random() * 10);
+                            var el = document.getElementById("live-count");
+                            if (!el) return;
+                            el.textContent = base;
+                            setInterval(function() {
+                                var delta = Math.random() < 0.5 ? 1 : -1;
+                                base = Math.min(Math.max(base + delta, 18), 42);
+                                el.textContent = base;
+                            }, 4500);
+                        })();
+
+                        (function () {
+                            var VARIANT_ID   = 48104788394232;
+                            var PRECIO       = 149.90;
+                            var CURRENCY     = "ARS";
+                            var TEXTO_NORMAL = "🚀 ACCEDÉ AHORA";
+                            var TEXTO_CARGA  = "⏳ Procesando...";
+                            var TEXTO_ERROR  = "❌ Reintentar";
+
+                            function init() {
+                                var boton = document.getElementById("comprar-flotante");
+                                if (!boton) return;
+
+                                boton.addEventListener("click", function () {
+                                    var selectorVariant = document.querySelector("select[name=\"id\"], input[name=\"id\"]:checked");
+                                    var variantId = (selectorVariant && selectorVariant.value) ? selectorVariant.value : VARIANT_ID;
+
+                                    boton.disabled = true;
+                                    boton.textContent = TEXTO_CARGA;
+
+                                    if (typeof fbq !== "undefined") {
+                                        fbq("track", "AddToCart", {
+                                            content_ids:  [variantId],
+                                            content_type: "product",
+                                            value:        PRECIO,
+                                            currency:     CURRENCY
+                                        });
+                                    }
+
+                                    fetch("/cart/clear.js", { method: "POST", headers: { "Content-Type": "application/json" } })
+                                    .then(function () {
+                                        return fetch("/cart/add.js", {
+                                            method: "POST",
+                                            headers: { "Content-Type": "application/json" },
+                                            body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
+                                        });
+                                    })
+                                    .then(function () { window.location.href = "/checkout"; })
+                                    .catch(function (err) {
+                                        console.error("Error en compra:", err);
+                                        boton.disabled = false;
+                                        boton.textContent = TEXTO_ERROR;
+                                        setTimeout(function () { boton.textContent = TEXTO_NORMAL; }, 3000);
+                                    });
+                                });
+                            }
+                            if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", init); } else { init(); }
+                        })();
+                    </script>
+                </body>
+                </html>
+                '></iframe>
+            </div>
+        </div>
     </div>
-
-    <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 bg-[#080809]/85 backdrop-blur-md border-b border-darkBorder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="text-xs uppercase tracking-widest px-2.5 py-1 rounded bg-goldPrimary/10 text-goldBright font-bold gold-border">Método Oficial</span>
-                <span class="font-extrabold text-lg sm:text-xl tracking-tight text-white">DÍA <span class="gold-gradient-text">UNO</span></span>
-            </div>
-            <div>
-                <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" class="btn-gold text-xs sm:text-sm font-extrabold uppercase tracking-wider px-5 py-2.5 rounded-lg shadow-md">
-                    Acceder al Método
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto reveal">
-                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-darkCard border border-goldPrimary/30 mb-6 shadow-inner">
-                    <span class="w-2 h-2 rounded-full bg-goldBright animate-ping"></span>
-                    <span class="text-xs sm:text-sm text-goldBright font-semibold tracking-wide">HACKEA TU CEREBRO Y RECUPERA EL CONTROL</span>
-                </div>
-                
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-                    Sabés exactamente lo que tenés que hacer. <br class="hidden sm:inline"/>
-                    <span class="gold-gradient-text">Y no lo hacés.</span>
-                </h1>
-                
-                <p class="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto font-normal">
-                    No es falta de disciplina, ni pereza, ni mala gestión del tiempo. Es tu amígdala intentando protegerte de la incomodidad emocional. Aprende el sistema quirúrgico para romper el ciclo de la parálisis hoy mismo.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                    <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" class="w-full sm:w-auto btn-gold text-base font-extrabold uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl gold-glow text-center">
-                        EMPEZAR MI DÍA UNO AHORA — $14.99 USD
-                    </a>
-                </div>
-
-                <div class="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-gray-400">
-                    <span class="flex items-center"><span class="text-goldBright mr-1.5 font-bold">✔</span> Lectura y práctica inmediata</span>
-                    <span class="flex items-center"><span class="text-goldBright mr-1.5 font-bold">✔</span> Acceso digital de por vida</span>
-                    <span class="flex items-center"><span class="text-goldBright mr-1.5 font-bold">✔</span> Garantía total de 7 días</span>
-                </div>
-            </div>
-
-            <!-- Hero Mockup Preview -->
-            <div class="mt-16 max-w-4xl mx-auto reveal delay-200">
-                <div class="rounded-2xl bg-darkCard p-3 sm:p-5 gold-border gold-glow">
-                    <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center relative border border-darkBorder">
-                        <img src="https://assets-2-prod.whop.com/public/uploads/2026-10-21/0f466a75-89ed-4546-8c24-d0c2428d335d/image.png" alt="Mockup El Método Día Uno" class="object-cover w-full h-full opacity-90 hover:opacity-100 transition-opacity duration-300">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Problem / Cycle Section -->
-    <section class="py-20 bg-darkCard/60 backdrop-blur-sm border-y border-darkBorder">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">¿Te sientes atrapado en este ciclo?</h2>
-                <p class="text-gray-400">La procrastinación no es un defecto de carácter, es una respuesta biológica de evitación.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-100">
-                    <div class="text-3xl mb-4">🧭</div>
-                    <h3 class="text-xl font-bold text-white mb-3">La Intención Frustrada</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Tienes la lista de tareas preparada y el café servido, pero terminas atrapado en el celular durante horas mientras la culpa se asoma lentamente.</p>
-                </div>
-                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-200">
-                    <div class="text-3xl mb-4">😞</div>
-                    <h3 class="text-xl font-bold text-white mb-3">El Peso Invisible</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Al final del día, el peso de lo que no hiciste te quita el sueño. Te prometes que "mañana será diferente", pero el ciclo se repite mecánicamente.</p>
-                </div>
-                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-300">
-                    <div class="text-3xl mb-4">⏳</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Tiempo Estancado</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">¿Hace cuánto tiempo sientes que corres en una rueda sin avanzar? Tus proyectos importantes acumulan polvo mientras la vida pasa.</p>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center bg-darkBg p-6 rounded-xl max-w-2xl mx-auto border border-goldPrimary/20 reveal">
-                <p class="text-goldBright italic text-sm sm:text-base font-medium">
-                    "La procrastinación no es un problema de tiempo y organización; es un problema de regulación emocional." <br/>
-                    <span class="text-xs text-gray-400 not-italic block mt-1">— Dr. Fuschia Sirois & Dr. Timothy Pychyl</span>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Solution / 4 Roots Section -->
-    <section class="py-24">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <span class="text-xs uppercase tracking-widest text-goldBright font-bold block mb-2">Ingeniería Comportamental</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">No necesitas más motivación. Necesitas un sistema.</h2>
-                <p class="text-gray-400">El Método Día Uno neutraliza las cuatro raíces científicas de la inacción:</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-100">
-                    <span class="text-goldPrimary font-black text-2xl block mb-3">01</span>
-                    <h3 class="text-lg font-bold text-white mb-2">La Inercia</h3>
-                    <p class="text-gray-400 text-sm">Vence el peso del reposo absoluto con la regla de los 5 segundos y micro-acciones de 2 minutos.</p>
-                </div>
-                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-200">
-                    <span class="text-goldPrimary font-black text-2xl block mb-3">02</span>
-                    <h3 class="text-lg font-bold text-white mb-2">La Sobrecarga</h3>
-                    <p class="text-gray-400 text-sm">Esquiva la trampa de la estimulación fácil fraccionando proyectos masivos en pasos sencillos.</p>
-                </div>
-                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-300">
-                    <span class="text-goldPrimary font-black text-2xl block mb-3">03</span>
-                    <h3 class="text-lg font-bold text-white mb-2">El Doble Miedo</h3>
-                    <p class="text-gray-400 text-sm">Desactiva el perfeccionismo paralizante y el miedo oculto al fracaso o al éxito inminente.</p>
-                </div>
-                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-100">
-                    <span class="text-goldPrimary font-black text-2xl block mb-3">04</span>
-                    <h3 class="text-lg font-bold text-white mb-2">Tiempo Psicológico</h3>
-                    <p class="text-gray-400 text-sm">Disuelve la narrativa mental de "llevo demasiado tiempo estancado" y vuelve al presente inmediato.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What You Get / The Offer Bundle -->
-    <section class="py-24 bg-darkCard/60 backdrop-blur-sm border-y border-darkBorder">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <span class="text-xs uppercase tracking-widest text-goldBright font-bold block mb-2">Ecosistema Completo</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Lo que recibes al acceder hoy</h2>
-                <p class="text-gray-400">Herramientas digitales profesionales diseñadas para la ejecución diaria.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Ebook -->
-                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-100">
-                    <div>
-                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Componente Principal</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Ebook El Método Día Uno</h3>
-                        <p class="text-gray-400 text-sm mb-6">3 capítulos de lectura directa, autodiagnóstico de raíces, ejercicios de 5 minutos y contratos de compromiso personal.</p>
-                    </div>
-                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $29.99</div>
-                </div>
-
-                <!-- Bono 1 -->
-                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-200">
-                    <div>
-                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Bono de Regalo #1</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Checklist: 21 Días de Ruta</h3>
-                        <p class="text-gray-400 text-sm mb-6">Tu mapa diario estructurado en 3 semanas para consolidar hábitos, superar tropiezos y evitar recaídas.</p>
-                    </div>
-                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $7.99 <span class="text-goldBright font-bold ml-1">GRATIS</span></div>
-                </div>
-
-                <!-- Bono 2 -->
-                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-300">
-                    <div>
-                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Bono de Regalo #2</div>
-                        <h3 class="text-xl font-bold text-white mb-3">5 Técnicas Antiprocrastinación</h3>
-                        <p class="text-gray-400 text-sm mb-6">Dominio táctico: Regla de los 5 segundos, Pomodoro, Comer el Sapo, Intenciones de Implementación y Método 2 Minutos.</p>
-                    </div>
-                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $9.99 <span class="text-goldBright font-bold ml-1">GRATIS</span></div>
-                </div>
-
-                <!-- Bono 3 -->
-                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-100">
-                    <div>
-                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Bono de Regalo #3</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Diario Reflexivo de 3 Semanas</h3>
-                        <p class="text-gray-400 text-sm mb-6">Preguntas nocturnas guiadas para identificar emociones ocultas, registrar tu enfoque diario y planificar la jornada siguiente.</p>
-                    </div>
-                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $24.99 <span class="text-goldBright font-bold ml-1">GRATIS</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing & Offer Box Section -->
-    <section class="py-24 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
-            <div class="bg-darkCard rounded-3xl p-8 sm:p-12 gold-border gold-glow text-center">
-                <div class="inline-block px-4 py-1.5 rounded-full bg-goldPrimary/10 text-goldBright font-bold text-xs uppercase tracking-widest mb-6 border border-goldPrimary/30">
-                    Acceso Instantáneo de Por Vida
-                </div>
-
-                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">Tu Día Uno empieza hoy</h2>
-                
-                <div class="flex items-center justify-center space-x-4 mb-8">
-                    <span class="text-gray-500 line-through text-2xl sm:text-3xl">$72.96 USD</span>
-                    <span class="text-4xl sm:text-6xl font-black text-white">$14.99 <span class="text-lg text-goldBright font-normal">USD</span></span>
-                </div>
-
-                <p class="text-gray-300 max-w-xl mx-auto mb-10 text-sm sm:text-base">
-                    Pago único. Sin suscripciones ocultas. Recibirás todo el material directamente en tu dispositivo en menos de 2 minutos.
-                </p>
-
-                <div class="mb-8">
-                    <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" class="btn-gold block sm:inline-block text-base sm:text-lg font-extrabold uppercase tracking-wider px-10 py-5 rounded-xl shadow-xl">
-                        OBTENER ACCESO TOTAL POR $14.99 AHORA
-                    </a>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gray-400 max-w-2xl mx-auto pt-6 border-t border-darkBorder">
-                    <div>🔒 Pago 100% Seguro vía Whop</div>
-                    <div>⚡ Descarga Inmediata en PDF</div>
-                    <div>🛡️ 7 Días de Garantía Total</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof / Testimonials -->
-    <section class="py-24 bg-darkCard/60 backdrop-blur-sm border-t border-darkBorder">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Lo que dicen quienes ya empezaron</h2>
-                <p class="text-gray-400">Resultados reales de personas reales en toda la región.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-100">
-                    <div class="text-goldBright mb-4">★★★★★</div>
-                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Siempre dejaba lo importante para el final. Con la Regla de los 120 Segundos empecé a arrancar sin darle tantas vueltas. Lo leí en una tarde y al día siguiente ya lo estaba aplicando.”</p>
-                    <div class="font-bold text-white text-sm">Martina G. <span class="text-gray-500 font-normal">· Córdoba</span></div>
-                </div>
-
-                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-200">
-                    <div class="text-goldBright mb-4">★★★★★</div>
-                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Lo que más me gustó es que no te habla de fuerza de voluntad abstracta. Está explicado simple, sin vueltas, y el checklist de 21 días me mantuvo con el pie en el acelerador.”</p>
-                    <div class="font-bold text-white text-sm">Lucas P. <span class="text-gray-500 font-normal">· Rosario</span></div>
-                </div>
-
-                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-300">
-                    <div class="text-goldBright mb-4">★★★★★</div>
-                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Soy freelancer y mi problema crónico era dar el primer paso. Las técnicas de los bonos son directas y se aplican hoy mismo. Material de altísimo valor por este precio.”</p>
-                    <div class="font-bold text-white text-sm">Camila R. <span class="text-gray-500 font-normal">· Buenos Aires</span></div>
-                </div>
-
-                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-100">
-                    <div class="text-goldBright mb-4">★★★★★</div>
-                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Pensé que sería otro libro más de motivación vacía, pero es puro sistema práctico. El diario reflexivo me hizo darme cuenta de patrones que ni sabía que tenía.”</p>
-                    <div class="font-bold text-white text-sm">Nicolás S. <span class="text-gray-500 font-normal">· Mendoza</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Preguntas Frecuentes</h2>
-                <p class="text-gray-400">Todo lo que necesitas saber antes de dar el paso.</p>
-            </div>
-
-            <div class="space-y-4">
-                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-100">
-                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
-                        ¿Cómo y cuándo recibo el material?
-                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">De forma inmediata tras confirmar el pago en Whop. Tendrás acceso de por vida al PDF del Ebook y a los 3 bonos descargables para leerlos y usarlos en tu celular, tablet o computadora.</p>
-                </details>
-
-                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-200">
-                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
-                        ¿Es un libro físico o digital?
-                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">Es un producto 100% digital optimizado para lectura rápida y uso interactivo (con espacios de escritura en los diarios y checklists).</p>
-                </details>
-
-                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-300">
-                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
-                        ¿Necesito conocimientos previos de psicología?
-                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">Para nada. El método traduce conceptos complejos de autorregulación cerebral en pasos sencillos, tácticos y aplicables desde el primer minuto.</p>
-                </details>
-
-                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-100">
-                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
-                        ¿Qué pasa si siento que no me funciona?
-                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">Tienes 7 días de garantía total. Si pruebas el sistema y consideras que no hubo un cambio en tu operativa diaria, pides el reembolso y se te devuelve cada centavo sin preguntas.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-darkCard border-t border-darkBorder py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-xs sm:text-sm">
-            <p class="mb-4 font-bold text-gray-400">© 2026 Método Día Uno. Todos los derechos reservados.</p>
-            <p class="max-w-2xl mx-auto leading-relaxed">Este contenido tiene fines educativos e informativos. Los resultados dependen del compromiso y la aplicación individual de los sistemas propuestos.</p>
-        </div>
-    </footer>
-
-    <!-- Floating Checkout Button -->
-    <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" id="floating-cta" class="floating-cta btn-gold text-sm font-extrabold uppercase tracking-wider px-6 py-3.5 rounded-full shadow-2xl items-center gap-2">
-        🚀 ACCEDER AHORA — $14.99
-    </a>
-
-    <!-- Interactive Scripts: Scroll Animations & Floating CTA Visibility -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Scroll Reveal Observer
-            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.12 };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("active");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-            // Floating CTA toggle on scroll
-            const floatingCta = document.getElementById("floating-cta");
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 450) {
-                    floatingCta.style.display = "flex";
-                } else {
-                    floatingCta.style.display = "none";
-                }
-            });
-        });
-    </script>
 </body>
 </html>
