@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Método Día Uno | Hackea tu Cerebro y Recupera el Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#080809',
+                        darkCard: '#131316',
+                        darkBorder: '#23232a',
+                        goldPrimary: '#D4AF37',
+                        goldBright: '#FFD700',
+                        goldDark: '#997A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Soft Lighting Ambient Background Effects */
+        .ambient-bg {
+            background-color: #080809;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(184, 134, 11, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(255, 215, 0, 0.04) 0%, transparent 50%);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #997A2A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gold-border {
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            transition: all 0.3s ease;
+        }
+        .gold-border:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+            color: #080809;
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #ffe033 0%, #e6c547 100%);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Reveal Animation Styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Floating Checkout Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.3);
+            animation: pulse-soft 3s infinite;
+        }
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+    </style>
+</head>
+<body class="ambient-bg text-gray-100 antialiased selection:bg-goldPrimary selection:text-darkBg">
+
+    <!-- Top Urgency Notification Bar -->
+    <div class="bg-gradient-to-r from-yellow-900/60 via-amber-600/30 to-yellow-900/60 border-b border-goldPrimary/30 py-2.5 px-4 text-center text-xs sm:text-sm font-semibold text-goldBright tracking-wide">
+        ⚡ ACCESO INMEDIATO: Ebook PDF + 3 Bonos Exclusivos de Ejecución (Oferta por tiempo limitado)
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-[#080809]/85 backdrop-blur-md border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-xs uppercase tracking-widest px-2.5 py-1 rounded bg-goldPrimary/10 text-goldBright font-bold gold-border">Método Oficial</span>
+                <span class="font-extrabold text-lg sm:text-xl tracking-tight text-white">DÍA <span class="gold-gradient-text">UNO</span></span>
+            </div>
+            <div>
+                <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" class="btn-gold text-xs sm:text-sm font-extrabold uppercase tracking-wider px-5 py-2.5 rounded-lg shadow-md">
+                    Acceder al Método
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto reveal">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-darkCard border border-goldPrimary/30 mb-6 shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-goldBright animate-ping"></span>
+                    <span class="text-xs sm:text-sm text-goldBright font-semibold tracking-wide">HACKEA TU CEREBRO Y RECUPERA EL CONTROL</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+                    Sabés exactamente lo que tenés que hacer. <br class="hidden sm:inline"/>
+                    <span class="gold-gradient-text">Y no lo hacés.</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto font-normal">
+                    No es falta de disciplina, ni pereza, ni mala gestión del tiempo. Es tu amígdala intentando protegerte de la incomodidad emocional. Aprende el sistema quirúrgico para romper el ciclo de la parálisis hoy mismo.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" class="w-full sm:w-auto btn-gold text-base font-extrabold uppercase tracking-wider px-8 py-4 rounded-xl shadow-xl gold-glow text-center">
+                        EMPEZAR MI DÍA UNO AHORA — $14.99 USD
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-gray-400">
+                    <span class="flex items-center"><span class="text-goldBright mr-1.5 font-bold">✔</span> Lectura y práctica inmediata</span>
+                    <span class="flex items-center"><span class="text-goldBright mr-1.5 font-bold">✔</span> Acceso digital de por vida</span>
+                    <span class="flex items-center"><span class="text-goldBright mr-1.5 font-bold">✔</span> Garantía total de 7 días</span>
+                </div>
+            </div>
+
+            <!-- Hero Mockup Preview -->
+            <div class="mt-16 max-w-4xl mx-auto reveal delay-200">
+                <div class="rounded-2xl bg-darkCard p-3 sm:p-5 gold-border gold-glow">
+                    <div class="rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center relative border border-darkBorder">
+                        <img src="https://assets-2-prod.whop.com/public/uploads/2026-10-21/0f466a75-89ed-4546-8c24-d0c2428d335d/image.png" alt="Mockup El Método Día Uno" class="object-cover w-full h-full opacity-90 hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem / Cycle Section -->
+    <section class="py-20 bg-darkCard/60 backdrop-blur-sm border-y border-darkBorder">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">¿Te sientes atrapado en este ciclo?</h2>
+                <p class="text-gray-400">La procrastinación no es un defecto de carácter, es una respuesta biológica de evitación.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-100">
+                    <div class="text-3xl mb-4">🧭</div>
+                    <h3 class="text-xl font-bold text-white mb-3">La Intención Frustrada</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Tienes la lista de tareas preparada y el café servido, pero terminas atrapado en el celular durante horas mientras la culpa se asoma lentamente.</p>
+                </div>
+                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-200">
+                    <div class="text-3xl mb-4">😞</div>
+                    <h3 class="text-xl font-bold text-white mb-3">El Peso Invisible</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Al final del día, el peso de lo que no hiciste te quita el sueño. Te prometes que "mañana será diferente", pero el ciclo se repite mecánicamente.</p>
+                </div>
+                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-300">
+                    <div class="text-3xl mb-4">⏳</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Tiempo Estancado</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">¿Hace cuánto tiempo sientes que corres en una rueda sin avanzar? Tus proyectos importantes acumulan polvo mientras la vida pasa.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center bg-darkBg p-6 rounded-xl max-w-2xl mx-auto border border-goldPrimary/20 reveal">
+                <p class="text-goldBright italic text-sm sm:text-base font-medium">
+                    "La procrastinación no es un problema de tiempo y organización; es un problema de regulación emocional." <br/>
+                    <span class="text-xs text-gray-400 not-italic block mt-1">— Dr. Fuschia Sirois & Dr. Timothy Pychyl</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution / 4 Roots Section -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-widest text-goldBright font-bold block mb-2">Ingeniería Comportamental</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">No necesitas más motivación. Necesitas un sistema.</h2>
+                <p class="text-gray-400">El Método Día Uno neutraliza las cuatro raíces científicas de la inacción:</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-100">
+                    <span class="text-goldPrimary font-black text-2xl block mb-3">01</span>
+                    <h3 class="text-lg font-bold text-white mb-2">La Inercia</h3>
+                    <p class="text-gray-400 text-sm">Vence el peso del reposo absoluto con la regla de los 5 segundos y micro-acciones de 2 minutos.</p>
+                </div>
+                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-200">
+                    <span class="text-goldPrimary font-black text-2xl block mb-3">02</span>
+                    <h3 class="text-lg font-bold text-white mb-2">La Sobrecarga</h3>
+                    <p class="text-gray-400 text-sm">Esquiva la trampa de la estimulación fácil fraccionando proyectos masivos en pasos sencillos.</p>
+                </div>
+                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-300">
+                    <span class="text-goldPrimary font-black text-2xl block mb-3">03</span>
+                    <h3 class="text-lg font-bold text-white mb-2">El Doble Miedo</h3>
+                    <p class="text-gray-400 text-sm">Desactiva el perfeccionismo paralizante y el miedo oculto al fracaso o al éxito inminente.</p>
+                </div>
+                <div class="bg-darkCard p-6 rounded-xl border border-darkBorder hover:border-goldPrimary/50 transition-all reveal delay-100">
+                    <span class="text-goldPrimary font-black text-2xl block mb-3">04</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Tiempo Psicológico</h3>
+                    <p class="text-gray-400 text-sm">Disuelve la narrativa mental de "llevo demasiado tiempo estancado" y vuelve al presente inmediato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get / The Offer Bundle -->
+    <section class="py-24 bg-darkCard/60 backdrop-blur-sm border-y border-darkBorder">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-widest text-goldBright font-bold block mb-2">Ecosistema Completo</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Lo que recibes al acceder hoy</h2>
+                <p class="text-gray-400">Herramientas digitales profesionales diseñadas para la ejecución diaria.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Ebook -->
+                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-100">
+                    <div>
+                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Componente Principal</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Ebook El Método Día Uno</h3>
+                        <p class="text-gray-400 text-sm mb-6">3 capítulos de lectura directa, autodiagnóstico de raíces, ejercicios de 5 minutos y contratos de compromiso personal.</p>
+                    </div>
+                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $29.99</div>
+                </div>
+
+                <!-- Bono 1 -->
+                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-200">
+                    <div>
+                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Bono de Regalo #1</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Checklist: 21 Días de Ruta</h3>
+                        <p class="text-gray-400 text-sm mb-6">Tu mapa diario estructurado en 3 semanas para consolidar hábitos, superar tropiezos y evitar recaídas.</p>
+                    </div>
+                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $7.99 <span class="text-goldBright font-bold ml-1">GRATIS</span></div>
+                </div>
+
+                <!-- Bono 2 -->
+                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-300">
+                    <div>
+                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Bono de Regalo #2</div>
+                        <h3 class="text-xl font-bold text-white mb-3">5 Técnicas Antiprocrastinación</h3>
+                        <p class="text-gray-400 text-sm mb-6">Dominio táctico: Regla de los 5 segundos, Pomodoro, Comer el Sapo, Intenciones de Implementación y Método 2 Minutos.</p>
+                    </div>
+                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $9.99 <span class="text-goldBright font-bold ml-1">GRATIS</span></div>
+                </div>
+
+                <!-- Bono 3 -->
+                <div class="bg-darkBg p-6 rounded-2xl gold-border flex flex-col justify-between reveal delay-100">
+                    <div>
+                        <div class="text-xs uppercase text-goldBright font-bold mb-2">Bono de Regalo #3</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Diario Reflexivo de 3 Semanas</h3>
+                        <p class="text-gray-400 text-sm mb-6">Preguntas nocturnas guiadas para identificar emociones ocultas, registrar tu enfoque diario y planificar la jornada siguiente.</p>
+                    </div>
+                    <div class="text-xs text-gray-500 font-semibold uppercase tracking-wider border-t border-darkBorder pt-4">Valorado en $24.99 <span class="text-goldBright font-bold ml-1">GRATIS</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Offer Box Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
+            <div class="bg-darkCard rounded-3xl p-8 sm:p-12 gold-border gold-glow text-center">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-goldPrimary/10 text-goldBright font-bold text-xs uppercase tracking-widest mb-6 border border-goldPrimary/30">
+                    Acceso Instantáneo de Por Vida
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6">Tu Día Uno empieza hoy</h2>
+                
+                <div class="flex items-center justify-center space-x-4 mb-8">
+                    <span class="text-gray-500 line-through text-2xl sm:text-3xl">$72.96 USD</span>
+                    <span class="text-4xl sm:text-6xl font-black text-white">$14.99 <span class="text-lg text-goldBright font-normal">USD</span></span>
+                </div>
+
+                <p class="text-gray-300 max-w-xl mx-auto mb-10 text-sm sm:text-base">
+                    Pago único. Sin suscripciones ocultas. Recibirás todo el material directamente en tu dispositivo en menos de 2 minutos.
+                </p>
+
+                <div class="mb-8">
+                    <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" class="btn-gold block sm:inline-block text-base sm:text-lg font-extrabold uppercase tracking-wider px-10 py-5 rounded-xl shadow-xl">
+                        OBTENER ACCESO TOTAL POR $14.99 AHORA
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gray-400 max-w-2xl mx-auto pt-6 border-t border-darkBorder">
+                    <div>🔒 Pago 100% Seguro vía Whop</div>
+                    <div>⚡ Descarga Inmediata en PDF</div>
+                    <div>🛡️ 7 Días de Garantía Total</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials -->
+    <section class="py-24 bg-darkCard/60 backdrop-blur-sm border-t border-darkBorder">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Lo que dicen quienes ya empezaron</h2>
+                <p class="text-gray-400">Resultados reales de personas reales en toda la región.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-100">
+                    <div class="text-goldBright mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Siempre dejaba lo importante para el final. Con la Regla de los 120 Segundos empecé a arrancar sin darle tantas vueltas. Lo leí en una tarde y al día siguiente ya lo estaba aplicando.”</p>
+                    <div class="font-bold text-white text-sm">Martina G. <span class="text-gray-500 font-normal">· Córdoba</span></div>
+                </div>
+
+                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-200">
+                    <div class="text-goldBright mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Lo que más me gustó es que no te habla de fuerza de voluntad abstracta. Está explicado simple, sin vueltas, y el checklist de 21 días me mantuvo con el pie en el acelerador.”</p>
+                    <div class="font-bold text-white text-sm">Lucas P. <span class="text-gray-500 font-normal">· Rosario</span></div>
+                </div>
+
+                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-300">
+                    <div class="text-goldBright mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Soy freelancer y mi problema crónico era dar el primer paso. Las técnicas de los bonos son directas y se aplican hoy mismo. Material de altísimo valor por este precio.”</p>
+                    <div class="font-bold text-white text-sm">Camila R. <span class="text-gray-500 font-normal">· Buenos Aires</span></div>
+                </div>
+
+                <div class="bg-darkBg p-8 rounded-2xl gold-border reveal delay-100">
+                    <div class="text-goldBright mb-4">★★★★★</div>
+                    <p class="text-gray-300 italic text-sm sm:text-base mb-6">“Pensé que sería otro libro más de motivación vacía, pero es puro sistema práctico. El diario reflexivo me hizo darme cuenta de patrones que ni sabía que tenía.”</p>
+                    <div class="font-bold text-white text-sm">Nicolás S. <span class="text-gray-500 font-normal">· Mendoza</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Preguntas Frecuentes</h2>
+                <p class="text-gray-400">Todo lo que necesitas saber antes de dar el paso.</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-100">
+                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                        ¿Cómo y cuándo recibo el material?
+                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">De forma inmediata tras confirmar el pago en Whop. Tendrás acceso de por vida al PDF del Ebook y a los 3 bonos descargables para leerlos y usarlos en tu celular, tablet o computadora.</p>
+                </details>
+
+                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-200">
+                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                        ¿Es un libro físico o digital?
+                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">Es un producto 100% digital optimizado para lectura rápida y uso interactivo (con espacios de escritura en los diarios y checklists).</p>
+                </details>
+
+                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-300">
+                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                        ¿Necesito conocimientos previos de psicología?
+                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">Para nada. El método traduce conceptos complejos de autorregulación cerebral en pasos sencillos, tácticos y aplicables desde el primer minuto.</p>
+                </details>
+
+                <details class="bg-darkCard p-6 rounded-xl gold-border group reveal delay-100">
+                    <summary class="font-bold text-white cursor-pointer flex justify-between items-center">
+                        ¿Qué pasa si siento que no me funciona?
+                        <span class="text-goldPrimary group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-gray-400 text-sm mt-4 leading-relaxed">Tienes 7 días de garantía total. Si pruebas el sistema y consideras que no hubo un cambio en tu operativa diaria, pides el reembolso y se te devuelve cada centavo sin preguntas.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkCard border-t border-darkBorder py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-xs sm:text-sm">
+            <p class="mb-4 font-bold text-gray-400">© 2026 Método Día Uno. Todos los derechos reservados.</p>
+            <p class="max-w-2xl mx-auto leading-relaxed">Este contenido tiene fines educativos e informativos. Los resultados dependen del compromiso y la aplicación individual de los sistemas propuestos.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Checkout Button -->
+    <a href="https://whop.com/checkout/plan_1ZilJ62oSYEes" id="floating-cta" class="floating-cta btn-gold text-sm font-extrabold uppercase tracking-wider px-6 py-3.5 rounded-full shadow-2xl items-center gap-2">
+        🚀 ACCEDER AHORA — $14.99
+    </a>
+
+    <!-- Interactive Scripts: Scroll Animations & Floating CTA Visibility -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Scroll Reveal Observer
+            const observerOptions = { root: null, rootMargin: "0px", threshold: 0.12 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+            // Floating CTA toggle on scroll
+            const floatingCta = document.getElementById("floating-cta");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 450) {
+                    floatingCta.style.display = "flex";
+                } else {
+                    floatingCta.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
